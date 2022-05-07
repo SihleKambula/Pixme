@@ -1,11 +1,14 @@
 import React from "react";
-
-const App = () => {
+import { Routes, Route } from "react-router-dom";
+import DetailsPage from "./pages/DetailsPage";
+import HomePage from "./pages/HomePage";
+export default function App() {
   return (
     <div>
-      <h1>Hello project</h1>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path=':imageId' element={<DetailsPage />} />
+      </Routes>
     </div>
   );
-};
-
-export default App;
+}
