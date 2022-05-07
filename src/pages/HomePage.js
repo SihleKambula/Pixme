@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Container } from "@mui/material";
 import Loading from "../components/Loading";
+import ImageGrid from "../components/ImageGrid";
 
 export default function HomePage() {
   const APIkey = "6473511-0417f2cad683f1bee54cafe15";
@@ -13,13 +13,10 @@ export default function HomePage() {
   // using react query for async data fetching and caching
   const { data, isLoading, isError, isSuccess } = useQuery("images", getImages);
   return (
-    <Container>
+    <>
       {isLoading && <Loading />}
       {isError && <p>Something went wrong</p>}
-      {isSuccess &&
-        data.hits.map((hit) => (
-          <img src={hit.imageURL} alt={hit.id} style={{ width: "200px" }} />
-        ))}
-    </Container>
+      {isSuccess && <ImageGrid data={data} />}
+    </>
   );
 }
