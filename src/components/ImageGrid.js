@@ -1,26 +1,21 @@
 import React from "react";
 import Masonry from "@mui/lab/Masonry";
 import { Box } from "@mui/system";
-import Appbar from "./Appbar";
+import { ImageList, ImageListItem } from "@mui/material";
 
 export default function ImageGrid({ data }) {
+  console.log(data);
   return (
-    <Box sx={{ width: "100%", maxWidth: "1290px" }}>
-      <Appbar />
-      <Masonry
-        columns={3}
-        spacing={3}
-        sx={{ marginX: "auto", paddingTop: "20px" }}
-      >
-        {data.hits.map((hit) => (
+    <ImageList variant='masonry' cols={3} gap={8} sx={{ marginTop: "10px" }}>
+      {data.hits.map((image) => (
+        <ImageListItem key={image.id}>
           <img
-            key={hit.id}
-            src={`${hit.imageURL}`}
-            alt={hit.id}
-            style={{ width: "400px", display: "block" }}
+            src={`${image.imageURL}`}
+            srcSet={`${image.imageURL}`}
+            loading='lazy'
           />
-        ))}
-      </Masonry>
-    </Box>
+        </ImageListItem>
+      ))}
+    </ImageList>
   );
 }

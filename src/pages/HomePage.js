@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../components/Loading";
 import ImageGrid from "../components/ImageGrid";
+import Appbar from "../components/Appbar";
 
 export default function HomePage() {
   const APIkey = "6473511-0417f2cad683f1bee54cafe15";
@@ -14,6 +15,7 @@ export default function HomePage() {
   const { data, isLoading, isError, isSuccess } = useQuery("images", getImages);
   return (
     <>
+      <Appbar />
       {isLoading && <Loading />}
       {isError && <p>Something went wrong</p>}
       {isSuccess && <ImageGrid data={data} />}
