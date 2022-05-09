@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ImageGrid({ data }) {
   return (
     <ImageList variant='masonry' cols={3} gap={8} sx={{ marginTop: "10px" }}>
-      {data.hits.map((image) => (
+      {data.map((image) => (
         <Link to={`${image.id}`} key={image.id}>
           <ImageListItem>
             <img
