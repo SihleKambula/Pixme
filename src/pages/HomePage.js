@@ -3,11 +3,12 @@ import { useInfiniteQuery } from "react-query";
 import ImageGrid from "../components/ImageGrid";
 import Appbar from "../components/Appbar";
 import Loading from "../components/Loading";
+
 export default function HomePage() {
-  const APIkey = "6473511-0417f2cad683f1bee54cafe15";
+  const apiKey = process.env.REACT_APP_API_KEY;
   const getImages = async ({ pageParam = 1 }) => {
     const res = await fetch(
-      `https://pixabay.com/api/?key=${APIkey}&q=wolf&page=${pageParam}`
+      `https://pixabay.com/api/?key=${apiKey}&q=wolf&page=${pageParam}`
     );
     return res.json();
   };

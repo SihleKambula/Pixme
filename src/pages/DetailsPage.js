@@ -3,26 +3,26 @@ import { useQuery } from "react-query";
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Information from "../components/Information";
+import Loading from "../components/Loading";
+
 export default function DetailsPage() {
+  const apiKey = process.env.REACT_APP_API_KEY;
   const params = useParams();
   const { imageId } = params;
-  //todo:remove API key
-  const APIkey = "6473511-0417f2cad683f1bee54cafe15";
 
-  //todo:create custom hook for this function
-  const getImages = async () => {
+  const getImage = async () => {
     const res = await fetch(
-      `https://pixabay.com/api/?key=${APIkey}&id=${imageId}`
+      `https://pixabay.com/api/?key=${apiKey}&id=${imageId}`
     );
     return res.json();
   };
 
-  const { data, isLoading, isError } = useQuery("images", getImages);
+  const { data, isLoading, isError } = useQuery("singleImage", getImage);
 
   return (
     <>
-      {isLoading && <p>Loading</p>}
-      {isError && <p>Something went wron</p>}
+      {isLoading && <Loading />}
+      {isError && <p>Something went wrong</p>}
       <Grid
         container
         spacing={2}
