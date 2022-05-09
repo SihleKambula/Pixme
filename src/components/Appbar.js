@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-import { Box } from "@mui/system";
-import {
-  AppBar,
-  IconButton,
-  InputBase,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import React from "react";
+
+import { AppBar, Toolbar, Typography } from "@mui/material";
+
 export default function Appbar() {
-  const [searchImage, setSearchImage] = useState("");
-  const fetchNewImages = () => {
-    console.log(searchImage);
-  };
   return (
     <AppBar
       position='static'
@@ -21,7 +11,7 @@ export default function Appbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <Typography variant='h5'>Pixme</Typography>
-        <Box>
+        {/* <Box>
           <InputBase
             sx={{ ml: 1 }}
             placeholder='Search images'
@@ -31,7 +21,7 @@ export default function Appbar() {
           <IconButton onClick={fetchNewImages}>
             <SearchIcon />
           </IconButton>
-        </Box>
+        </Box> */}
       </Toolbar>
     </AppBar>
   );
