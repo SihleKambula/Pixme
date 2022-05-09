@@ -23,39 +23,45 @@ export default function DetailsPage() {
     <>
       {isLoading && <Loading />}
       {isError && <p>Something went wrong</p>}
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          justifyContent: "center",
-          marginTop: "20px",
-        }}
-      >
-        <Grid item xs={10} md={8}>
-          <img
-            src={`${data.hits[0].imageURL}`}
-            style={{ width: "100%" }}
-            alt={data.hits[0].id}
-          />
-        </Grid>
+      {data && (
         <Grid
-          item
-          xs={10}
-          md={8}
-          sx={{ display: "flex", justifyContent: "space-evenly" }}
+          container
+          spacing={2}
+          sx={{
+            justifyContent: "center",
+            marginTop: "20px",
+          }}
         >
-          <Information title={"Photography"} value={data.hits[0].user} />
-          <Information title={"Tags"} value={data.hits[0].tags} />
-          <Information title={"Views"} value={data.hits[0].views} />
-          <Information title={"Downloads"} value={data.hits[0].downloads} />
-          <Information
-            title={"Size"}
-            value={`${(data.hits[0].imageSize * 0.000001)
-              .toString()
-              .slice(0, 3)}MB`}
-          />
+          <Grid item xs={10} md={8}>
+            <img
+              src={`${data.hits[0].imageURL}`}
+              style={{ width: "100%" }}
+              alt={data.hits[0].id}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={10}
+            md={2}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Information title={"Photography"} value={data.hits[0].user} />
+            <Information title={"Tags"} value={data.hits[0].tags} />
+            <Information title={"Views"} value={data.hits[0].views} />
+            <Information title={"Downloads"} value={data.hits[0].downloads} />
+            <Information
+              title={"Size"}
+              value={`${(data.hits[0].imageSize * 0.000001)
+                .toString()
+                .slice(0, 3)}MB`}
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      )}
     </>
   );
 }
