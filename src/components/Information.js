@@ -1,12 +1,11 @@
 import React from "react";
-import { Typography } from "@mui/material";
 export default function Information({ title, value }) {
   return (
-    <Typography>
-      <span style={{ color: "gray" }}>{title}</span>
-
-      <br />
-      {value}
-    </Typography>
+    <div
+      style={{ display: "flex", flexDirection: "column", marginBottom: "5px" }}
+    >
+      <p style={{ color: "gray" }}>{title}</p>
+      <p>{value}</p>
+    </div>
   );
 }
