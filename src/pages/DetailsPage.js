@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Information from "../components/Information";
 import Loading from "../components/Loading";
+import Image from "../components/Image";
 
 export default function DetailsPage() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -33,11 +34,7 @@ export default function DetailsPage() {
           }}
         >
           <Grid item xs={10} md={8}>
-            <img
-              src={`${data.hits[0].imageURL}`}
-              style={{ width: "100%" }}
-              alt={data.hits[0].id}
-            />
+            <Image imageURL={data.hits[0].imageURL} imageID={data.hits[0].id} />
           </Grid>
           <Grid
             item
