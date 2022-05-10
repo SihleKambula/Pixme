@@ -4,6 +4,8 @@ import Information from "../../components/Information";
 
 it("Should render same text passed into title and value props", async () => {
   render(<Information title='catagory' value='wolves' />);
-  const informationElement = screen.getByText(/catagory/i);
-  expect(informationElement).toBeInTheDocument();
+  const titleElement = screen.getByText(/catagory/i);
+  const valueElement = screen.getByText(/wolves/i);
+  expect(titleElement).toBeVisible();
+  expect(valueElement).toBeVisible();
 });
