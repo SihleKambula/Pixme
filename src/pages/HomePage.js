@@ -8,7 +8,7 @@ export default function HomePage() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const getImages = async ({ pageParam = 1 }) => {
     const res = await fetch(
-      `https://pixabay.com/ap/?key=${apiKey}&per_page=21&page=${pageParam}`
+      `https://pixabay.com/api/?key=${apiKey}&per_page=21&page=${pageParam}`
     );
     return res.json();
   };
