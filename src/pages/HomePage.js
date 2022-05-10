@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import ImageGrid from "../components/ImageGrid";
-import Appbar from "../components/Appbar";
 import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 export default function HomePage() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const getImages = async ({ pageParam = 1 }) => {
     const res = await fetch(
-      `https://pixabay.com/api/?key=${apiKey}&per_page=21&page=${pageParam}`
+      `https://pixabay.com/ap/?key=${apiKey}&per_page=21&page=${pageParam}`
     );
     return res.json();
   };
@@ -49,9 +49,8 @@ export default function HomePage() {
 
   return (
     <>
-      <Appbar />
       {status === "loading" && <Loading />}
-      {error && <p>Something went wrong</p>}
+      {error && <Error />}
       {data &&
         data.pages.map((page, index) => (
           <ImageGrid data={page.hits} key={index} />
