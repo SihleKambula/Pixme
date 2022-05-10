@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Grid } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Button, Grid } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
 import Information from "../components/Information";
 import Loading from "../components/Loading";
 import Image from "../components/Image";
@@ -59,6 +59,9 @@ export default function DetailsPage() {
           </Grid>
         </Grid>
       )}
+      <Link to='/'>
+        <Button variant='contained'>Back</Button>
+      </Link>
     </>
   );
 }
