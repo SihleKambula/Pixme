@@ -1,6 +1,7 @@
 import React from "react";
 
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Appbar() {
   return (
@@ -10,18 +11,7 @@ export default function Appbar() {
       color='transparent'
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Typography variant='h5'>Pixme</Typography>
-        {/* <Box>
-          <InputBase
-            sx={{ ml: 1 }}
-            placeholder='Search images'
-            inputProps={{ "aria-label": "search images" }}
-            onChange={(e) => setSearchImage(e.target.value)}
-          />
-          <IconButton onClick={fetchNewImages}>
-            <SearchIcon />
-          </IconButton>
-        </Box> */}
+        <Link to='/'>Back</Link>
       </Toolbar>
     </AppBar>
   );
